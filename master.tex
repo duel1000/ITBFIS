@@ -1,0 +1,82 @@
+%%% Preamble
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}	% Article class of KOMA-script with 11pt font and a4 format
+%\usepackage[T1]{fontenc}
+\usepackage{fourier}
+%\usepackage[sfdefault,light]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+\usepackage{float}
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage{layout}
+
+\usepackage[english]{babel}															% English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}				% Better typography
+\usepackage{amsmath,amsfonts,amsthm}										% Math packages
+\usepackage[pdftex]{graphicx}														% Enable pdflatex
+\usepackage{url}
+
+\usepackage[utf8] {inputenc}
+\usepackage{setspace}
+\onehalfspacing
+
+%%% Custom sectioning (sectsty package)
+\usepackage{sectsty}												% Custom sectioning (see below)
+\allsectionsfont{\centering \normalfont\scshape}	% Change font of al section commands
+
+\setlength{\footnotesep}{0.5cm}
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}														% No page header
+%\fancyfoot[L]{\small \emph{Dronecleaner}}		% You may remove/edit this line 
+\fancyfoot[C]{}													% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{INGENIØRHØJSKOLEN AARHUS UNIVERSITET} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge ITBFIS - Håndbold applikation \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Darlow Kiruparajan 11605\\\normalsize Martin Due 11639\\\normalsize Andreas Andersen 11073\\\\[-3pt]		\normalsize
+        15. januar 2015
+}
+\date{}
+
+%%% Begin document
+\begin{document}
+\maketitle
+\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=15mm]{images/handballl}
+		\end{figure}
+
+
+\newpage
+\renewcommand{\figurename}{Figur}
+\renewcommand\contentsname{Indholdsfortegnelse}
+\tableofcontents
+
+\newpage
+\section*{HifiPrototype}
+\addcontentsline{toc}{subsection}{HifiPrototype}
+\input{sections/HifiPrototype}
+
+%%% End document
+\end{document}

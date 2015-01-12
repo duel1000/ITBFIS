@@ -1,0 +1,303 @@
+Body{
+	margin-top: 50px;
+	background-color: black;
+}
+
+.center-content{
+	text-align: center;
+}
+
+.container{
+	width: 1280px;
+	height: 720px;
+	background-color: grey;
+	background-image: url(field.jpg); 
+}	
+
+.player-inputs{
+	margin-top: 50px;
+}
+
+.form-control{
+	background-color: green;
+	color: orange;
+	width: 305px;
+}
+
+.header{
+	color: green;
+	margin-top: 150px;
+	font-size: 50px;
+}
+
+.begin-button-row{
+	margin-top: 2px;
+}
+
+.big-button{
+	font-size: 35px;
+	width: 500px;
+}
+
+.draggable-jersey-div{
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 30px;
+}
+
+/****DROP FIELDS****/
+.drop-fields-wrapper{
+	height: 655px;
+}
+
+.drop-field{
+	width: 50px;
+	height: 60px;
+	border: solid;
+	border-width: 0px;
+}
+
+.drop-field.field-1{
+	position: relative;
+	left: 80px;
+	top: 320px;
+	border-color: purple;
+}
+
+.drop-field.field-2{
+	position: relative;
+	left: 150px;
+	top: 50px;
+	border-color: purple;
+}
+
+.drop-field.field-3{
+	position: relative;
+	left: 240px;
+	top: 70px;
+	border-color: purple;
+}
+
+.drop-field.field-4{
+	position: relative;
+	left: 270px;
+	top: 90px;
+	border-color: purple;
+}
+
+.drop-field.field-5{
+	position: relative;
+	left: 300px;
+	top: 120px;
+	border-color: purple;
+}
+
+.drop-field.field-6{
+	position: relative;
+	left: 270px;
+	top: 150px;
+	border-color: purple;
+}
+
+.drop-field.field-7{
+	position: relative;
+	left: 220px;
+	top: 180px;
+	border-color: purple;
+}
+
+.drop-field.field-8{
+	position: relative;
+	left: 1170px;
+	top: -100px;
+	border-color: orange;
+}
+
+.drop-field.field-9{
+	position: relative;
+	left: 1100px;
+	top: -370px;
+	border-color: orange;
+}
+
+.drop-field.field-10{
+	position: relative;
+	left: 1010px;
+	top: -360px;
+	border-color: orange;
+}
+
+.drop-field.field-11{
+	position: relative;
+	left: 970px;
+	top: -340px;
+	border-color: orange;
+}
+
+.drop-field.field-12{
+	position: relative;
+	left: 940px;
+	top: -300px;
+	border-color: orange;
+}
+
+.drop-field.field-13{
+	position: relative;
+	left: 970px;
+	top: -270px;
+	border-color: orange;
+}
+
+.drop-field.field-14{
+	position: relative;
+	left: 1020px;
+	top: -240px;
+	border-color: orange;
+}
+
+/*******STATIC FIELDS *****/
+.static-fields-wrapper{
+	height: 655px;
+}
+
+.static-jersey-div1{
+	position: relative;
+	left: 80px;
+	top: 320px;
+	border-color: purple;
+}
+
+.static-jersey-div2{
+	position: relative;
+	left: 150px;
+	top: 50px;
+	border-color: purple;
+}
+
+.static-jersey-div3{
+	position: relative;
+	left: 240px;
+	top: 70px;
+	border-color: purple;
+}
+
+.static-jersey-div4{
+	position: relative;
+	left: 270px;
+	top: 90px;
+	border-color: purple;
+}
+
+.static-jersey-div5{
+	position: relative;
+	left: 300px;
+	top: 120px;
+	border-color: purple;
+}
+
+.static-jersey-div6{
+	position: relative;
+	left: 270px;
+	top: 150px;
+	border-color: purple;
+}
+
+.static-jersey-div7{
+	position: relative;
+	left: 220px;
+	top: 180px;
+	border-color: purple;
+}
+
+.static-jersey-div8{
+	position: relative;
+	left: 1170px;
+	top: -100px;
+	border-color: orange;
+}
+
+.static-jersey-div9{
+	position: relative;
+	left: 1100px;
+	top: -370px;
+	border-color: orange;
+}
+
+.static-jersey-div10{
+	position: relative;
+	left: 1010px;
+	top: -360px;
+	border-color: orange;
+}
+
+.static-jersey-div11{
+	position: relative;
+	left: 970px;
+	top: -340px;
+	border-color: orange;
+}
+
+.static-jersey-div12{
+	position: relative;
+	left: 940px;
+	top: -300px;
+	border-color: orange;
+}
+
+.static-jersey-div13{
+	position: relative;
+	left: 970px;
+	top: -270px;
+	border-color: orange;
+}
+
+.static-jersey-div14{
+	position: relative;
+	left: 1020px;
+	top: -240px;
+	border-color: orange;
+}
+
+/*Buttons to choose amongst*/
+.goal-button{
+	position: relative;
+	left: 380px;
+	width: 200px;
+	height: 80px;
+	bottom: 250px;
+}
+
+.miss-button{
+	position: relative;
+	left: 180px;
+	width: 200px;
+	height: 80px;
+}
+
+.shot-saved-button{
+	position: relative;
+	left: 300px;
+	width: 200px;
+	height: 80px;
+	bottom: 250px;
+}
+
+.shot-blocked-button{
+	position: relative;
+	left: 100px;
+	width: 200px;
+	height: 80px;
+}
+
+.medium-font{
+	font-size: 30px;
+}
+
+.description{
+	color: white;
+	font-size: 24px !important;
+}
+
+.description-container{
+	text-align: center;
+}

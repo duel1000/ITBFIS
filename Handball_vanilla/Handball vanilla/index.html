@@ -1,0 +1,304 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="master.css">
+	<script src="jquery-1.11.1.js"></script>
+	<title>index</title>
+
+<script type="text/javascript">
+	
+	var globalGoalCount = 0;
+	var globalSavedCount = 0;
+	var globalMissedCount = 0;
+	var globalBlockedCount = 0;
+
+	function Initialize(){
+		globalGoalCount = 0;
+		globalSavedCount = 0;
+		globalMissedCount = 0;
+		globalBlockedCount = 0;
+	}
+
+	$(document).ready(function(){
+
+		//NOTE(martin): STATE 1 SETUP PLAYER NAMES**********************************************
+		var setupPlayersContainer = $("#setup-players-container");
+		var lastInputField = $("#last-inputfield");
+		var beginButtonDiv = $("#begin-button-div");
+		var godkendButton = $("#godkend-button");
+
+		var dropFieldsWrapper = $("#drop-fields-wrapper");
+		var dragPlayersIntoPositionContainer = $("#drag-players-into-position-container");
+		var lastImageToBeDropped = $("#last-image-to-be-dropped");
+		var startMatchButton = $("#start-match-button");
+
+		var matchBegunContainer = $("#match-has-begun-container");
+		var endMatchButton = $("#end-match-button");
+		var shotTypesDiv = $("#shotTypesDiv");
+		var goalButton = $("#shot-button_goal");
+		var missedButton = $("#shot-button_missed");
+		var savedButton = $("#shot-button_saved");
+		var blockedButton = $("#shot-button_blocked");
+
+		var statisticsContainer = $("#statistics-container");
+		var goalCountSpan = $("#goal_count_span");
+		var blockedCountSpan = $("#blocked_count_span");
+		var missedCountSpan = $("#missed_count_span");
+		var savedCountSpan = $("#saved_count_span");
+
+		var startDescription = $("#start-description");
+		var setupDescription = $("#setup-description");
+		var gameBegunDescription = $("#game-begun-description");
+		var statisticsDescription = $("#statistics-description");
+
+		lastInputField.on("keydown", function(){
+			beginButtonDiv.show();
+		});
+
+		godkendButton.on("click", function(){
+			/*TODO(martin): Loop through the input fields and check if they are correct*/
+
+			setupPlayersContainer.hide();
+			dragPlayersIntoPositionContainer.show();
+			startDescription.hide();
+			setupDescription.show();
+		});
+
+		//NOTE(martin): STATE 2 DRAG PLAYERS INTO POSITION***************************************
+		startMatchButton.on("click", function(){
+			dragPlayersIntoPositionContainer.hide();
+			matchBegunContainer.show();
+			setupDescription.hide();
+			gameBegunDescription.show();
+		});
+
+		//NOTE(martin): STATE 3 MATCH HAS BEGUN***************************************************
+		$("[id^=static]").on("click", function(){
+			
+			var playerId = this.id.split('_')[1];
+			
+				//Show 4 posibilities
+			shotTypesDiv.show();
+		});	
+
+		goalButton.on("click", function(){
+			globalGoalCount++;
+			//TODO(martin): Goals should be shown for both teams
+			alert("Total goals are now: " + globalGoalCount);
+			goalCountSpan.text(globalGoalCount);
+			shotTypesDiv.hide();
+		});
+		
+		savedButton.on("click", function(){
+			globalSavedCount++;
+			alert("player ID: X got saved by the keeper!");
+			savedCountSpan.text(globalSavedCount);
+			shotTypesDiv.hide();
+		});
+		
+		missedButton.on("click", function(){
+			globalMissedCount++;
+			alert("PLAYER ID: X missed the goal!");
+			missedCountSpan.text(globalMissedCount);
+			shotTypesDiv.hide();
+		});
+		
+		blockedButton.on("click", function(){
+			globalBlockedCount++;
+			alert("player ID X: got blocked!");
+			blockedCountSpan.text(globalBlockedCount);
+			shotTypesDiv.hide();
+		});
+
+		endMatchButton.on("click", function(){
+			matchBegunContainer.hide();
+			statisticsContainer.show();
+			gameBegunDescription.hide();
+			statisticsDescription.show();
+		});
+
+		//NOTE(martin): STATE 4 STATISTICS*******************************************************
+		
+	});
+
+	function allowDrop(ev){
+		ev.preventDefault();
+	}
+
+	function drag(ev) {
+		//TODO(martin): When drag starts the jerseys moves a bit - probably some margin setting?
+		$(".drop-field").each(function(){
+			$(this).css("border-width", "5px");
+		});
+
+		ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+		$(".drop-field").each(function(){
+			$(this).css("border-width", "0px");
+		});
+
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		ev.target.appendChild(document.getElementById(data));
+		if(data == "last-image-to-be-dropped")
+		{	
+			$("#start-match-button").show();
+		}
+	}
+
+	function ReloadApp(){
+		Initialize();
+		location.reload();
+	}
+</script>
+
+</head>
+<body>
+	<div class="container">
+
+		<!--****************SETUP PLAYER NAMES*************************-->
+		<div id="setup-players-container">
+			<div class="row header center-content">
+				<label style="color: red">Indtast spillernavne</label>
+			</div>
+			<div class="row">
+				<div class="col-xs-offset-3 col-xs-3 player-inputs">
+					<input type="text" class="form-control" placeholder="Indtast spillernavn"/><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+				</div>
+				<div class="col-xs-4 player-inputs">
+					<input type="text" class="form-control" placeholder="Indtast spillernavn"/><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+					<input id="last-inputfield" type="text" class="form-control" placeholder="Indtast spillernavn" /><br/>
+				</div>
+			</div>
+			<div class="row begin-button-row center-content">
+				<div id="begin-button-div" class="begin-button-div" style="display: none">
+					<button id="godkend-button" class="btn btn-success big-button">Godkend</button>
+				</div>
+			</div>
+		</div>
+
+		<!--*********************DRAG PLAYERS INTO POSITION*************************-->
+		<div id="drag-players-into-position-container" style="display: none">
+			<div id="drop-fields-wrapper" class="row drop-fields-wrapper">
+				<div class="drop-field field-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+				<div class="drop-field field-8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-10" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-11" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-12" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-13" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="drop-field field-14" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 center-content">
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag1" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag2" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag3" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag4" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag5" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag6" src="teamonejersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag7" src="teamonejersey.png"></span>
+				</div>
+				<div class="col-xs-6 center-content">
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag8" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag9" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag10" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag11" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag12" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img draggable="true" ondragstart="drag(event)" id="drag13" src="teamtwojersey.png"></span>
+					<span class="draggable-jersey-div"><img id="last-image-to-be-dropped" draggable="true" ondragstart="drag(event)" id="drag14" src="teamtwojersey.png"></span>
+				</div>
+				<div class="col-xs-12 center-content">
+					<button id="start-match-button" class="big-button btn btn-primary" style="display:none">Start kampen!</button>
+				</div>
+			</div>
+				
+		</div>
+
+		<!--****************MATCH HAS BEGUN*************************-->
+		<div id="match-has-begun-container" style="display: none">
+			<div class="row static-fields-wrapper">
+					<div id="static-jersey-div_1" class="static-jersey-div1"><img id="static1" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_2" class="static-jersey-div2"><img id="static2" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_3" class="static-jersey-div3"><img id="static3" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_4" class="static-jersey-div4"><img id="static4" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_5" class="static-jersey-div5"><img id="static5" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_6" class="static-jersey-div6"><img id="static6" src="teamonejersey.png"></div>
+					<div id="static-jersey-div_7" class="static-jersey-div7"><img id="static7" src="teamonejersey.png"></div>
+
+					<div id="shotTypesDiv" style="display: none">
+						<button id="shot-button_goal" class="btn btn-primary goal-button">Goal</button>
+						<button id="shot-button_missed" class="btn btn-primary miss-button">Miss</button>
+						<button id="shot-button_saved" class="btn btn-primary shot-saved-button">Shot saved</button>
+						<button id="shot-button_blocked" class="btn btn-primary shot-blocked-button">Shot blocked</button>
+					</div>
+					<div id="static-jersey-div_8" class="static-jersey-div8"><img id="static8" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_9" class="static-jersey-div9"><img id="static9" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_10" class="static-jersey-div10"><img id="static10" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_11" class="static-jersey-div11"><img id="static11" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_12" class="static-jersey-div12"><img id="static12" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_13" class="static-jersey-div13"><img id="static13" src="teamtwojersey.png"></div>
+					<div id="static-jersey-div_14" class="static-jersey-div14"><img id="static14" src="teamtwojersey.png"></div>
+			</div>
+			<div class="col-xs-12" style="margin-left: 700px;">
+					<!--TODO(martin): Sæt knappen rigtigt!-->
+					<button id="end-match-button" class="big-button btn btn-danger">Slut kampen!</button>
+			</div>
+		</div>
+
+		<!--****************STATISTICS*************************-->
+		<div id="statistics-container" style="display: none">
+			<div class="row center-content">
+				<div class="header">STATISTIKSIDE</div>
+				<br/>
+				<br/>
+				<div class="medium-font">Total goals: <span style="color: blue" id="goal_count_span"></span></div>
+				<div class="medium-font">Total saves: <span style="color: blue" id="saved_count_span"></span></div>
+				<div class="medium-font">Total misses: <span style="color: blue" id="missed_count_span"></span></div>
+				<div class="medium-font">Total blocks: <span style="color: blue" id="blocked_count_span"></span></div>
+				<br>
+				<button class="btn ptn-danger" onclick="ReloadApp()">Genstart applikation</button>
+			</div>
+		</div>
+
+	</div> <!--Container end-->
+
+	<div class="description-container">
+		<div id="start-description" class="description">
+				Enter the different playernames for both teams. When the last name is entered press the button.
+		</div>
+		<div id="setup-description" class="description" style="display: none">
+				Drag the players to their corresponding positions of the field. After that press the button.
+		</div>
+		<div id="game-begun-description" class="description" style="display: none">
+				When a player takes a shot press the player and choose what happened. Press the button to end the match.
+		</div>
+		<div id="statistics-description" class="description" style="display: none">
+				Here you can see the different statistics of the match.
+		</div>
+	</div>
+</body>
+</html>
+
+
+
