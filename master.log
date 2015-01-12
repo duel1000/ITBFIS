@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.5)  12 JAN 2015 21:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.5)  13 JAN 2015 00:05
 entering extended mode
 **C:/Users/Martin/Desktop/ITBFIS/master.tex
 (C:/Users/Martin/Desktop/ITBFIS/master.tex
@@ -1048,17 +1048,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
@@ -1222,19 +1227,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--99
 
 [14] (C:\Users\Martin\Desktop\ITBFIS\master.aux) ) 
 Here is how much of TeX's memory you used:
- 7654 strings out of 493705
- 114949 string characters out of 3142150
- 246471 words of memory out of 3000000
+ 7650 strings out of 493705
+ 114908 string characters out of 3142150
+ 245471 words of memory out of 3000000
  10581 multiletter control sequences out of 15000+200000
- 108295 words of font info for 222 fonts, out of 3000000 for 9000
+ 108025 words of font info for 219 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 39i,10n,47p,1587b,264s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,47p,1589b,264s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTe
 X 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/ad
 obe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/adobe/utop
 ia/putri8a.pfb>
-Output written on master.pdf (14 pages, 284441 bytes).
+Output written on master.pdf (14 pages, 284437 bytes).
 PDF statistics:
  69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
